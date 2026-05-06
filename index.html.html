@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Без срока давности | Геноцид советского народа 1941–1945</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #030405;
+            font-family: 'Inter', sans-serif;
+            color: #f0f0f0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9e2a2a;
+            border-radius: 4px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* hero section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at 20% 30%, rgba(0,0,0,0.9), #020202);
+            border-bottom: 1px solid rgba(180, 30, 30, 0.3);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4c/Khatyn_memorial_2.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            opacity: 0.2;
+            filter: grayscale(0.7) brightness(0.5);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 8vw, 5.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 30%, #c42a2a 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 1rem;
+        }
+        .hero .sub {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #e0e0e0;
+            border-top: 1px solid rgba(196, 42, 42, 0.6);
+            display: inline-block;
+            padding-top: 0.8rem;
+            backdrop-filter: blur(2px);
+        }
+        .hero .tagline {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #ccc;
+        }
+        .authors {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.6);
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            backdrop-filter: blur(6px);
+            font-weight: 400;
+        }
+
+        /* sections */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 65px;
+            height: 3px;
+            background: #b22222;
+            border-radius: 3px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+        .stat-card {
+            background: rgba(20, 20, 25, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            border: 1px solid rgba(180, 180, 180, 0.1);
+            transition: transform 0.25s ease, border-color 0.2s;
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.4);
+        }
+        .stat-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(180, 40, 40, 0.5);
+            background: rgba(30, 30, 38, 0.8);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #e6572e;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #aaa;
+            margin-top: 0.5rem;
+        }
+        .stat-desc {
+            font-size: 0.8rem;
+            margin-top: 0.7rem;
+            color: #cbcbcb;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        @media (max-width: 780px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+        .info-block {
+            background: rgba(10, 10, 14, 0.7);
+            padding: 1.8rem;
+            border-radius: 32px;
+            border-left: 4px solid #b54545;
+            backdrop-filter: blur(4px);
+        }
+        .info-block h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .info-block i {
+            color: #bd4343;
+            font-size: 1.8rem;
+        }
+        .crime-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .crime-list li {
+            margin-bottom: 0.9rem;
+            padding-left: 1.6rem;
+            position: relative;
+        }
+        .crime-list li:before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #c44;
+            font-size: 0.9rem;
+        }
+        .quote {
+            font-style: italic;
+            background: #0f0f12;
+            padding: 1.8rem;
+            border-radius: 28px;
+            margin: 2rem 0;
+            border: 1px solid #2e2e2e;
+            font-weight: 400;
+            color: #dddddd;
+            font-size: 0.95rem;
+        }
+        .quote i {
+            color: #b55;
+            margin-right: 8px;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .memory-card {
+            background: #0e0e12;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            transition: all 0.2s;
+            border: 1px solid #252525;
+        }
+        .memory-card:hover {
+            border-color: #883333;
+        }
+        .memory-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(0.4);
+            transition: filter 0.3s;
+        }
+        .memory-card:hover .memory-img {
+            filter: grayscale(0);
+        }
+        .memory-content {
+            padding: 1.4rem;
+        }
+        .memory-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            background: #2c1919;
+            color: #e09898;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            font-size: 0.8rem;
+            color: #7c7c7c;
+            border-top: 1px solid #1f1f1f;
+        }
+        .project-link {
+            color: #c86565;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .red-dot {
+            color: #b33;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .animate {
+            animation: fadeUp 0.7s ease forwards;
+        }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <div class="hero-content">
+        <h1>БЕЗ СРОКА ДАВНОСТИ</h1>
+        <div class="sub">ГЕНОЦИД СОВЕТСКОГО НАРОДА В ГОДЫ ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</div>
+        <p class="tagline">«Память человечества возвращает нас к урокам страшных лет фашизма… Трагедия, которой стала для нашего народа гитлеровская оккупация, не имеет давности»</p>
+        <div class="authors">✧ МЕЖДИСЦИПЛИНАРНЫЙ ПРОЕКТ ✧<br> Хабаров М.М. | Джамалудинов Р.Х. | Астрахань – 2025</div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- ЦИФРЫ И ФАКТЫ -->
+    <section>
+        <h2 class="section-title">Неопровержимые цифры</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">26,6 млн</div>
+                <div class="stat-label">погибших граждан СССР</div>
+                <div class="stat-desc">военные и мирные жители — крупнейшие потери в истории</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1 710</div>
+                <div class="stat-label">разрушенных городов</div>
+                <div class="stat-desc">70 000 сёл и деревень стёрты с лица земли</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">~300</div>
+                <div class="stat-label">пересыльных лагерей «Дулаг»</div>
+                <div class="stat-desc">и десятки тысяч замученных в каждом, где людей морили голодом</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1 093 842</div>
+                <div class="stat-label">жертв блокады Ленинграда</div>
+                <div class="stat-desc">признано судом геноцидом, реальные потери пересмотрены</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">35 трлн ₽</div>
+                <div class="stat-label">ущерб (в ценах 2022 г.)</div>
+                <div class="stat-desc">прямой + косвенный ущерб от оккупации и геноцида</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОНЯТИЕ ГЕНОЦИДА + ПЛАН ОСТ -->
+    <section>
+        <div class="two-columns">
+            <div class="info-block">
+                <h3><i class="fas fa-gavel"></i> Геноцид — преступление без срока давности</h3>
+                <p>По определению ООН (1948) и юриста Рафаэля Лемкина: <strong>преднамеренное уничтожение группы по национальному, расовому или религиозному признаку</strong>. Согласно Конвенции, наказание за геноцид <span style="color:#e65c5c;">не имеет сроков давности</span>.</p>
+                <ul class="crime-list">
+                    <li>Убийства членов группы</li>
+                    <li>Создание условий, ведущих к физическому уничтожению</li>
+                    <li>Предотвращение деторождения и насильственная передача детей</li>
+                    <li>Психическое и физическое увечье</li>
+                </ul>
+            </div>
+            <div class="info-block">
+                <h3><i class="fas fa-skull-crossbones"></i> «План Ост» – архитектура уничтожения</h3>
+                <p>Нацистский план колонизации Востока предполагал уничтожение 30 млн славян, депортацию 65% украинцев и белорусов в Сибирь, онемечивание остальных, физическое истребление евреев и цыган. Согласно директивам, славяне объявлялись «недочеловеками», к которым Женевские конвенции неприменимы.</p>
+                <p><strong>Цель:</strong> геноцид как государственная политика Третьего рейха, реализованная через концлагеря, голод и массовые расстрелы.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРЕСТУПЛЕНИЯ НАЦИСТОВ: БЛОКАДА, ДУЛАГИ, КАЗНИ -->
+    <section>
+        <h2 class="section-title">Преступления, не знающие прощения</h2>
+        <div class="two-columns" style="margin-top: 0;">
+            <div>
+                <div class="info-block" style="margin-bottom: 1.5rem;">
+                    <h3><i class="fas fa-city"></i> Блокада Ленинграда – 871 день ада</h3>
+                    <p>Санкт-Петербургский городской суд в 2022 году <strong>признал блокаду геноцидом</strong>. Заседания с рассекреченными документами подтвердили: не менее 1 093 842 погибших от голода, бомбёжек и холода. Зимой 1941/42 столбик термометра падал до -40°, люди умирали на улицах, паёк хлеба содержал опилки, свирепствовали крысы, разносившие инфекции. Ущерб оценен в 35 трлн рублей.</p>
+                    <div class="quote" style="margin: 1rem 0 0 0; font-size:0.9rem;">
+                        <i class="fas fa-quote-left"></i> «…признать блокаду Ленинграда военным преступлением, преступлением против человечности и геноцидом национально-этнических групп, представлявших собой население СССР» — из решения суда.
+                    </div>
+                </div>
+                <div class="info-block">
+                    <h3><i class="fas fa-fence"></i> Дулаги — лагеря смерти на советской земле</h3>
+                    <p>Около 300 пересыльных лагерей (Дулаг). В одном только «Дулаге-100» в Псковской области погибли более 85 000 человек. Людей не кормили, выдавали баланду из гнилого картофеля, 200 г хлеба с опилками. Свидетель Пётр Ерпилов: <em>«Умирало в день до 300 человек… трупы вывозили в бесконечные рвы»</em>. Дулаг-140 в Выре — братская могила, где в каждую яму сбрасывали до 200 тел.</p>
+                </div>
+            </div>
+            <div>
+                <div class="info-block">
+                    <h3><i class="fas fa-fire"></i> Массовые казни: Хатынь, Беловщина, Стародубье</h3>
+                    <p>19 сентября 1941 года пал Киев — сразу уничтожено 752 пациента психиатрической больницы. В Стародубском районе нацисты расстреливали без разбора. 1 марта 1942 на «Беловщине» за один день казнены <strong>800 женщин и детей</strong> — разутых, раздетых, загнанных в ямы. Подобные зверства: сожжённые заживо в сараях — 149 человек (75 из них дети). Полицаи расстреливали вырывающихся из пламени.</p>
+                    <div class="quote" style="margin-top: 1rem;">
+                        <i class="fas fa-dove"></i> «Фашисты хватали людей на улицах, расстреливали группы стариков, женщин и детей без разбора…» — из актов Чрезвычайной государственной комиссии.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quote" style="background: #0b0707;">
+            <i class="fas fa-book-open"></i> Исторический факт: 5,7 млн советских военнопленных, из которых 3,3 млн погибли в концлагерях от голода, пыток и казней. Все евреи, комиссары, «интеллектуалы» подлежали немедленному расстрелу согласно приказу о комиссарах.
+        </div>
+    </section>
+
+    <!-- ПРОЕКТ "БЕЗ СРОКА ДАВНОСТИ" -->
+    <section>
+        <h2 class="section-title">Проект «Без срока давности»<span style="font-size: 1rem; background: none; display: inline-block; margin-left: 15px;"></span></h2>
+        <div class="two-columns">
+            <div>
+                <p style="margin-bottom: 1rem; font-size:1.05rem;">Всероссийский проект инициирован Поисковым движением России при поддержке Президента РФ. <strong>Цель:</strong> сохранение исторической правды о геноциде советского народа, рассекречивание архивов, увековечение памяти жертв нацизма.</p>
+                <ul class="crime-list">
+                    <li>Рассекречены тысячи документов «Совершенно секретно» о зверствах оккупантов.</li>
+                    <li>Проведено более 50 поисковых экспедиций, обнаружены неизвестные захоронения мирных жителей.</li>
+                    <li>Судебные трибуналы признали геноцидом блокаду Ленинграда, преступления в Ростовской, Брянской, Новгородской областях.</li>
+                    <li>Открыты образовательные ресурсы: интерактивные уроки, виртуальные туры по мемориалам.</li>
+                </ul>
+            </div>
+            <div>
+                <div class="info-block" style="background:#0c0c10;">
+                    <h3><i class="fas fa-chalkboard-user"></i> Образовательные форматы</h3>
+                    <p>➤ Научно-практические конференции для педагогов и историков.<br>
+                    ➤ Электронные архивы «Мемориал», «Подвиг народа».<br>
+                    ➤ Показ фильмов-свидетельств и всероссийские акции «Без срока давности» в школах и вузах.<br>
+                    <span style="color:#bc5a5a;">Ключевая задача:</span> не дать забыть уроки нацизма и воспитать граждан, знающих правду о геноциде.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- МЕМОРИАЛЫ И ПАМЯТЬ / картинки из реальных мемориалов -->
+    <section>
+        <h2 class="section-title">Места скорби и непокорённые</h2>
+        <div class="memory-grid">
+            <div class="memory-card">
+                <div class="memory-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/7a/Piskarevskoye_Cemetery_Monument.jpg');"></div>
+                <div class="memory-content">
+                    <div class="badge">Пискарёвское мемориальное кладбище</div>
+                    <h4>Ленинград, вечный реквием</h4>
+                    <p>Массовые захоронения жертв блокады. Символ непобедимости духа — скорбящая Мать-Родина.</p>
+                </div>
+            </div>
+            <div class="memory-card">
+                <div class="memory-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0f/Мемориал_«Непокорённые»_близ_Порхова.jpg');"></div>
+                <div class="memory-content">
+                    <div class="badge">Мемориал «Непокорённые»</div>
+                    <h4>Дулаг-100, Порховский район</h4>
+                    <p>На месте лагеря смерти, где погибли более 85 тыс. советских людей — символ несломленной воли.</p>
+                </div>
+            </div>
+            <div class="memory-card">
+                <div class="memory-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b5/Khatyn_memorial_bells.jpg');"></div>
+                <div class="memory-content">
+                    <div class="badge">Хатынь (Белоруссия)</div>
+                    <h4>149 сожжённых, из них 75 детей</h4>
+                    <p>Колокола Хатыни напоминают миру о трагедии каждой третьей белорусской деревни.</p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;"><i class="fas fa-camera"></i> Мемориалы, запечатлевшие боль и героизм</p>
+    </section>
+
+    <!-- ЦИТАТА И ЮРИДИЧЕСКИЙ АСПЕКТ "БЕЗ СРОКА ДАВНОСТИ" -->
+    <section>
+        <div style="background: radial-gradient(ellipse at 30% 40%, #1d1313, #050101); border-radius: 40px; padding: 2rem; text-align: center; border: 1px solid #941c1c;">
+            <i class="fas fa-balance-scale" style="font-size: 2.2rem; color: #b34b4b;"></i>
+            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">Нюрнберг. Начало мира</h3>
+            <p style="max-width: 800px; margin: 1rem auto; font-size: 1rem;">«Проект “Нюрнберг. Начало мира”, в основе которого лежат идеи гуманизма и исторической справедливости, показывает, что мы пережили именно геноцид, но смогли победить тех, кто сделал его своей страшной теорией» <br> — из реферата. <strong>Признание геноцида — путь к истине и недопущению повторения.</strong></p>
+            <div style="margin-top: 20px; font-size: 0.9rem; border-top: 1px dashed #972727; display: inline-block; padding-top: 0.8rem;">#БезСрокаДавности #НиктоНеЗабыт</div>
+        </div>
+    </section>
+
+    <!-- ИТОГ / ЗАКЛЮЧЕНИЕ -->
+    <section>
+        <div class="two-columns">
+            <div class="info-block">
+                <h3><i class="fas fa-hourglass-half"></i> Уроки истории и современность</h3>
+                <p>Фашизм — не только прошлое. Политическая нестабильность, рост неонацистских движений требуют бдительности. Геноцид советского народа остаётся не просто исторической травмой, но правовым и нравственным основанием для борьбы с ксенофобией и реваншизмом. Как подчёркнуто в проекте: <strong>Пока мы помним — мы живём</strong>. И долг каждого — передать правду о войне, лагерях смерти, блокаде и подвиге наших предков.</p>
+            </div>
+            <div class="info-block">
+                <h3><i class="fas fa-database"></i> Цифровые архивы памяти</h3>
+                <p>➤ Обобщённый банк данных «Мемориал»<br>➤ Электронный банк «Подвиг народа»<br>➤ Архивные документы без грифа «секретно», опубликованные проектом «Без срока давности»<br><br>Каждый может приобщиться к сохранению памяти, изучить свидетельства узников и военные дневники.<br><span style="color:#ba6b6b;">Историческая справедливость требует неустанной работы.</span></p>
+            </div>
+        </div>
+        <div class="quote" style="text-align: center; background: #030303;">
+            <i class="fas fa-heartbeat red-dot"></i> «Люди не должны забывать зверства, совершенные фашистами по всему миру. Память человечества возвращает нас к урокам страшных лет фашизма».  
+        </div>
+    </section>
+
+    <footer>
+        <p>По материалам междисциплинарного проекта Астраханского государственного университета им. В.Н. Татищева.<br>
+        Реферат «Без срока давности» — студенты Хабаров М.М., Джамалудинов Р.Х. (группа ДСН–11), науч. рук. к.и.н. Тюрин А.О.<br>
+        Инфографика создана с опорой на рассекреченные документы, судебные решения и архивные данные о геноциде советского народа в 1941–1945 гг.<br>
+        <span class="red-dot">✧</span> Вечная память миллионам невинных жертв нацизма. <span class="red-dot">✧</span><br>
+        <a href="#" class="project-link">«Без срока давности» — официальный портал проекта</a></p>
+    </footer>
+</div>
+
+<!-- простая анимация при видимости -->
+<script>
+    const fadeElements = document.querySelectorAll('.stat-card, .info-block, .memory-card, .quote');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    fadeElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        observer.observe(el);
+    });
+    document.querySelectorAll('.hero-content').forEach(el => el.style.opacity = '1');
+    document.querySelectorAll('.stat-card').forEach(el => el.style.transitionDelay = '0.05s');
+</script>
+</body>
+</html>
